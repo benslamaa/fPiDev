@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="panier.cart.CartController">
+    <VBox fx:id="cartPane" >
+        <padding>
+            <Insets top="25" right="25" bottom="25" left="25" />
+        </padding>
+    </VBox>
+</VBox>
