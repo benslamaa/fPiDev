@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventShow">
+   <children>
+      <ListView fx:id="ListView" layoutX="62.0" layoutY="41.0" onMouseClicked="#Onclick" prefHeight="269.0" prefWidth="476.0" />
+      <TextField fx:id="label" layoutX="226.0" layoutY="336.0" />
+      <Button fx:id="deleteE" layoutX="448.0" layoutY="336.0" mnemonicParsing="false" onAction="#deleteEv" text="delete" />
+      <Label fx:id="addE" layoutX="34.0" layoutY="328.0" onMouseClicked="#addE" text="Add" />
+      <Label fx:id="UpdateE" layoutX="41.0" layoutY="361.0" onMouseClicked="#updateE" text="Update" />
+   </children>
+</AnchorPane>
