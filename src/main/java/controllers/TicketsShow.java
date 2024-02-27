@@ -41,43 +41,7 @@ public class TicketsShow {
                 e.printStackTrace();
             }}
     }
-    @FXML
-    void deleteT(ActionEvent event)
 
-    {
-        int selectedItem = listV.getSelectionModel().getSelectedItem().getTickets_id();
-        deleteT.setText(String.valueOf(selectedItem));
-        String sql = "DELETE FROM tickets WHERE tickets_id = ?";
-        try {
-            // Create a confirmation dialog
-            Dialog<ButtonType> dialog = new Dialog<>();
-            dialog.setTitle("Confirmation");
-            dialog.setContentText("Are you sure you want to delete this product?");
-            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-
-            // Show the dialog and wait for the admin's response
-            Optional<ButtonType> result = dialog.showAndWait();
-
-            // If the admin chooses "Yes", delete the product
-            if (result.isPresent() && result.get() == ButtonType.YES) {
-                try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
-                    int idSuppValue = Integer.parseInt(deleteT.getText());
-                    preparedStatement.setInt(1, idSuppValue);
-                    preparedStatement.executeUpdate();
-                    System.out.println("Product Deleted successfully!");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Succès");
-                    alert.setContentText("Product Deleted successfully!");
-                    alert.showAndWait();
-                    initialize();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 
     {
@@ -106,6 +70,43 @@ public class TicketsShow {
             listV.setItems(items);
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void deleteT(ActionEvent event)
+
+    {
+        int selectedItem = listV.getSelectionModel().getSelectedItem().getTickets_id();
+        deleteT.setText(String.valueOf(selectedItem));
+        String sql = "DELETE FROM tickets WHERE tickets_id = ?";
+        try {
+            // Create a confirmation dialog
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Confirmation");
+            dialog.setContentText("Are you sure you want to delete this product?");
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+
+            // Show the dialog and wait for the admin's response
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            // If the admin chooses "Yes", delete the product
+            if (result.isPresent() && result.get() == ButtonType.YES) {
+                try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+                    int deleteTVallue = Integer.parseInt(deleteT.getText());
+                    preparedStatement.setInt(1, deleteTVallue);
+                    preparedStatement.executeUpdate();
+                    System.out.println("Product Deleted successfully!");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Succès");
+                    alert.setContentText("Product Deleted successfully!");
+                    alert.showAndWait();
+                    initialize();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
