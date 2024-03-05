@@ -24,7 +24,10 @@ public class EventAdd {
    @FXML
    private Label UpdateE;
 
-
+    @FXML
+    private Label BuyT;
+    @FXML
+    private Label showT;
     @FXML
     private Label showE;
 
@@ -37,14 +40,30 @@ public class EventAdd {
     private Label ticketA;
 
     @FXML
-    void ADDT(MouseEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Event_Add.fxml"));
-        try {
-            Parent root = loader.load();
-            TicketsAdd controller = loader.getController();
-            ticketA.getScene().setRoot(root);
-        }catch (IOException e){
-            e.printStackTrace();
+    void showT(MouseEvent event) {
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tickets_show.fxml"));
+            try {
+                Parent root = loader.load();
+                TicketsShow controller = loader.getController();
+                showT.getScene().setRoot(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    void buyT(MouseEvent event) {
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tickets_add.fxml"));
+            try {
+                Parent root = loader.load();
+                TicketsAdd controller = loader.getController();
+                BuyT.getScene().setRoot(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -80,6 +99,7 @@ public class EventAdd {
     void addE(ActionEvent event)  {
         {
             try {
+
                 String name = nameE.getText();
                 String theme = themeE.getText();
 

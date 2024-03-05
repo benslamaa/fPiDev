@@ -26,7 +26,7 @@ public class tickets_service implements IService<tickets> {
     @Override
     public void add(tickets T) {
         try {
-            String req = "INSERT INTO tickets (tickets_type,tickets_price,quantite,event_id) VALUES ('"+T.getTickets_type()+"','"+T.getTickets_price()+"','"+T.getQuantite()+"','"+T.getEvent_id()+"')";
+            String req = "INSERT INTO tickets (tickets_type,tickets_price,quantite,event_id,qrcode) VALUES ('"+T.getTickets_type()+"','"+T.getTickets_price()+"','"+T.getQuantite()+"','"+T.getEvent_id()+"','"+T.getQrcode()+"')";
             Statement st = conn.createStatement();
             st.executeUpdate(req);
             System.out.println("Tickets Added successfully!");

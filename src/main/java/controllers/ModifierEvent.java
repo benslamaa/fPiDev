@@ -27,6 +27,11 @@ import java.util.List;
 
 public class ModifierEvent {
     private Connection conn;
+    @FXML
+    private Label BuyT;
+
+    @FXML
+    private Label showT;
 
     @FXML
     private ComboBox<String> idE;
@@ -38,6 +43,34 @@ public class ModifierEvent {
     private TextField themeE;
     @FXML
     private Label EventA;
+
+    @FXML
+    void showT(MouseEvent event) {
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tickets_show.fxml"));
+            try {
+                Parent root = loader.load();
+                TicketsShow controller = loader.getController();
+                showT.getScene().setRoot(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    void buyT(MouseEvent event) {
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tickets_add.fxml"));
+            try {
+                Parent root = loader.load();
+                TicketsAdd controller = loader.getController();
+                BuyT.getScene().setRoot(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @FXML
     void showE(MouseEvent event) {
@@ -85,7 +118,7 @@ public class ModifierEvent {
                 String theme = themeE.getText();
 
                 // Créer un nouvel compte avec les valeurs récupérées
-                 e = new evenement(nom, theme);
+                 e = new evenement(id,nom, theme);
 
                 // Appeler la méthode de mise à jour du compte
 
@@ -113,9 +146,9 @@ public class ModifierEvent {
         if (selectedValue != null) {
             int idd = Integer.parseInt(selectedValue);
 
-            es.getOneById(idd);
+            evenement e=es.getOneById(idd);
             nameE.setText(e.getEvent_name());
-            themeE.setText(String.valueOf(e.getEvent_theme()));
+            themeE.setText(e.getEvent_theme());
 
 }}
     @FXML

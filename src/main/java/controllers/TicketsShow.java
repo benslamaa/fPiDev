@@ -1,6 +1,5 @@
 package controllers;
 
-import entities.evenement;
 import entities.tickets;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,37 +8,76 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+
 import javafx.scene.input.MouseEvent;
 import utils.data_source;
 
+import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Optional;
 
 public class TicketsShow {
     @FXML
+    private Label BuyT;
+
+
+    @FXML
     private ListView<tickets> listV;
     private Connection conn;
     private java.awt.Label IdSupp;
     @FXML
-    private Label add;
+    private Label addE;
+    @FXML
+    private Label show;
 
     @FXML
     private TextField deleteT;
 
     @FXML
+    private ImageView imqr;
+    @FXML
+    private Label EventA;
+
+    @FXML
     private Button deleteTI;
     @FXML
-    void ADD(MouseEvent event) {
+    void eventA(MouseEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Event_Add.fxml"));
+        try {
+            Parent root = loader.load();
+            EventAdd controller = loader.getController();
+            EventA.getScene().setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void buyT(MouseEvent event) {
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Event_Add.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tickets_add.fxml"));
             try {
                 Parent root = loader.load();
                 TicketsAdd controller = loader.getController();
-                add.getScene().setRoot(root);
-            }catch (IOException e){
+                BuyT.getScene().setRoot(root);
+            } catch (IOException e) {
                 e.printStackTrace();
-            }}
+            }
+        }
+    }
+
+    @FXML
+    void showE(MouseEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/event_show.fxml"));
+        try {
+            Parent root = loader.load();
+            EventShow controller = loader.getController();
+            show.getScene().setRoot(root);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -63,6 +101,7 @@ public class TicketsShow {
                 t.setTickets_price(rs.getInt("tickets_price"));
                  t.setQuantite(rs.getInt("quantite"));
                  t.setEvent_id(rs.getInt("event_id"));
+                 t.setQrcode(rs.getString("qrcode"));
                 items.add(t);
             }
 
@@ -71,9 +110,36 @@ public class TicketsShow {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        listV.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                // Display the QR code of the selected ticket
+                System.out.println(newValue.getQrcode());
+                displayQRCode(newValue.getQrcode());
+            }
+        });
     }
     @FXML
-    void deleteT(ActionEvent event)
+    void getqr(MouseEvent event) {
+
+    }
+
+    private void displayQRCode(String qrCodePath) {
+        try {
+            Image image = new Image("file:" + qrCodePath);
+            if (image.isError()) {
+                System.out.println("Error loading image: " + image.getUrl());
+            } else {
+                imqr.setImage(image);
+            }
+        } catch (Exception e) {
+            System.out.println("Error loading image: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    void DeleteT(ActionEvent event) throws SQLException
 
     {
         int selectedItem = listV.getSelectionModel().getSelectedItem().getTickets_id();

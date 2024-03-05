@@ -17,7 +17,7 @@ public class Main {
         event_service es = new event_service();
       tickets_service ts=new tickets_service();
 
-        Connection cnx = data_source.getInstance().getCnx();
+        // Connection cnx = data_source.getInstance().getCnx();
 
        /* evenement e=new evenement("haloowen","scary", Date.valueOf("2023-09-11"));
         es.add(e);*/
@@ -27,6 +27,8 @@ public class Main {
 es.update(e);*/
 /*tickets t =new tickets("VIP",12,70,2);
 ts.add(t);*/
-        ts.delete(3);
+       // ts.delete(3);
+
+       System.out.println(es.recherche("esprit"));
     }
     }

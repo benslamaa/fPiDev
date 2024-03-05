@@ -7,8 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import entities.tickets;
 import utils.data_source;
 //import utils.data_source;
 
@@ -48,6 +51,7 @@ public class event_service implements IService<evenement> {
             throw new RuntimeException(var4);
         }
     }*/
+
 
     @Override
     public void delete(int id) {
@@ -90,8 +94,8 @@ public class event_service implements IService<evenement> {
             while(rs.next()) {
                 list.add(new evenement(rs.getInt(1),
                         rs.getString("event_name"),
-                        rs.getString("event_theme"),
-                        rs.getDate("event_date")));
+                        rs.getString("event_theme")));
+                        //rs.getDate("event_date")));
             }
 
             return list;
@@ -132,7 +136,7 @@ public class event_service implements IService<evenement> {
 
     public evenement getOneById(int idd) {
         evenement E = null;
-        String req = "SELECT * FROM produit WHERE event_id = ?";
+        String req = "SELECT * FROM evenement WHERE event_id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(req)) {
             stmt.setInt(1, idd);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -179,4 +183,34 @@ public class event_service implements IService<evenement> {
             e.printStackTrace();
         }
     }
+
+
+    //recherche dynamuique
+    public List<evenement> recherche(String x) {
+        List<evenement> list = new ArrayList<>();
+        try {
+            String requete = "SELECT * FROM evenement WHERE event_name LIKE '%" + x + "%' OR event_theme LIKE '%" + x + "%'";
+            this.ste = this.conn.createStatement();
+            ResultSet rs = this.ste.executeQuery(requete);
+            while (rs.next()) {
+                list.add(new evenement(rs.getInt(1), rs.getString("event_name"), rs.getString("event_theme")));
+            }
+        } catch (SQLException var4) {
+            throw new RuntimeException(var4);
+        }
+        return list;
+    }
+
+
+    public List<evenement> triNom() {
+
+        List<evenement> list1;
+        List<evenement> list2 = readAll();
+
+        list1 = list2.stream().sorted(Comparator.comparing(evenement::getEvent_name)).collect(Collectors.toList());
+        return list1;
+
+    }
+
+
 }

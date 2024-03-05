@@ -7,6 +7,7 @@ public class tickets {
     private String tickets_type;
     private float tickets_price;
 
+    private String qrcode;
     private int quantite;
     private int event_id;
     private evenement Evenement;
@@ -19,15 +20,24 @@ public class tickets {
         this.event_id = event_id;
     }
 
-    public tickets(String tickets_type, float tickets_price, int quantite, int event_id) {
+    public tickets(String tickets_type, float tickets_price, int quantite, int event_id, String qrcode) {
         this.tickets_type = tickets_type;
         this.tickets_price = tickets_price;
         this.quantite = quantite;
+        this.qrcode = qrcode;
         this.event_id = event_id;
     }
 
     public tickets() {
 
+    }
+
+    public String getQrcode() {
+        return qrcode;
+    }
+
+    public void setQrcode(String qrcode) {
+        this.qrcode = qrcode;
     }
 
     public int getTickets_id() {

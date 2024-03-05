@@ -3,11 +3,11 @@ package entities;
 import java.util.Date;
 
 public class evenement {
-    private static int event_id;
+    private  int event_id;
     private String event_name;
     private String event_theme;
 
-    public evenement(int event_id, String event_name, String event_theme,Date event_date) {
+    public evenement(int event_id, String event_name, String event_theme) {
         this.event_id = event_id;
         this.event_name = event_name;
         this.event_theme = event_theme;
@@ -23,7 +23,7 @@ public class evenement {
 
     }
 
-    public static int getEvent_id() {
+    public  int getEvent_id() {
         return event_id;
     }
 

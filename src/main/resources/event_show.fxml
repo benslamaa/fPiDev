@@ -4,14 +4,75 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventShow">
+<AnchorPane prefHeight="572.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventShow">
    <children>
-      <ListView fx:id="ListView" layoutX="62.0" layoutY="41.0" onMouseClicked="#Onclick" prefHeight="269.0" prefWidth="476.0" />
-      <TextField fx:id="label" layoutX="226.0" layoutY="336.0" />
-      <Button fx:id="deleteE" layoutX="448.0" layoutY="336.0" mnemonicParsing="false" onAction="#deleteEv" text="delete" />
-      <Label fx:id="addE" layoutX="34.0" layoutY="328.0" onMouseClicked="#addE" text="Add" />
-      <Label fx:id="UpdateE" layoutX="41.0" layoutY="361.0" onMouseClicked="#updateE" text="Update" />
+      <ListView fx:id="ListView" layoutX="247.0" layoutY="100.0" onMouseClicked="#Onclick" prefHeight="465.0" prefWidth="609.0" />
+      <Button layoutX="586.0" layoutY="28.0" mnemonicParsing="false" onAction="#comboptrie" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: D30011;" text="Trie" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Pane layoutY="-5.0" prefHeight="584.0" prefWidth="223.0" style="-fx-background-color: D30011;">
+         <children>
+            <Pane layoutX="31.0" layoutY="38.0" prefHeight="110.0" prefWidth="116.0" style="-fx-background-color: D30011;">
+               <children>
+                  <ImageView fitHeight="147.0" fitWidth="136.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../418534895_853711886660256_7522690764560293090_n.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label fx:id="addE" layoutX="68.0" layoutY="204.0" onMouseClicked="#addE" text="Add Event" textFill="#f2efef">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="UpdateE" layoutX="55.0" layoutY="253.0" onMouseClicked="#updateE" text="Update Event" textFill="#f2efef">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="showT" layoutX="58.0" layoutY="348.0" onMouseClicked="#showT" text="Show Tickets" textFill="#f2efef">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="158.0" text="Events" textFill="#f2efef">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="303.0" text="Tickets" textFill="#f2efef">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="BuyT" layoutX="59.0" layoutY="408.0" onMouseClicked="#buyT" text="Buy Tickets" textFill="#f2efef">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <Line endX="111.0" layoutX="112.0" layoutY="190.0" startX="-112.0" stroke="#f5f5f5" />
+            <Line endX="111.0" layoutX="109.0" layoutY="336.0" startX="-112.0" stroke="#f5f5f5" />
+         </children>
+      </Pane>
+      <HBox layoutX="296.0" layoutY="28.0" prefHeight="25.0" prefWidth="290.0" spacing="20.0">
+         <children>
+            <TextField fx:id="label" promptText="Search Event.." />
+            <Button fx:id="deleteE" mnemonicParsing="false" onAction="#deleteEv" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: D30011;" text="delete" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
