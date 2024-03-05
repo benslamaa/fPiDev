@@ -11,8 +11,8 @@ public class MainFx extends Application {
 
 
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/LivreurCrud.fxml"));
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/home.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/LivreurCrud.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Livreur");
         stage.setScene(scene);

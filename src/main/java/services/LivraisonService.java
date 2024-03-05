@@ -76,4 +76,32 @@ public class LivraisonService implements CRUD<Livraison> {
         System.out.println("Livraison updated");
     }
 
+    public List<Livraison> SearchByClientName(String name)  throws SQLException
+    {
+        List<Livraison> livraisons = new ArrayList<>();
+        String query = "SELECT * FROM livraison where client_name like ?";
+        Connection connect = DataSource.getInstance().getCnx();
+        PreparedStatement preparedStatement = connect.prepareStatement(query);
+            // Set the parameter safely to avoid SQL injection
+            preparedStatement.setString(1, "%" + name + "%");
+
+
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            Livraison livraison = new Livraison();
+            livraison.setLivraisonId(resultSet.getInt("livraison_id"));
+            livraison.setClientName(resultSet.getString("client_name"));
+            livraison.setDeliveryAddress(resultSet.getString("delivery_address"));
+            livraison.setDeliveryDate(resultSet.getString("delivery_date"));
+            livraison.setLivreurId(resultSet.getInt("livreurId"));
+            livraison.setStatus(resultSet.getString("status"));
+            livraison.setCommande(resultSet.getString("commande"));
+            livraisons.add(livraison);
+        }
+
+        return livraisons;
+    }
+
 }

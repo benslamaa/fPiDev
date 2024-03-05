@@ -6,17 +6,13 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import entities.Livraison;
 import entities.Livreur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.LivraisonService;
@@ -48,6 +44,7 @@ public class LivraisonCrudForm {
     @FXML
     private ComboBox<String> statusCombo;
     private Livraison selectedLivraison;
+
 
 
     @FXML

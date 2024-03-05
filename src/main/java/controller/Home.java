@@ -1,93 +1,155 @@
 package controller;
 
-import java.net.URL;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import entities.Livreur;
+import com.stripe.model.PaymentLink;
+import com.stripe.model.Source;
+import entities.Livraison;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.control.Label;
-import javafx.scene.control.Pagination;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import services.LivreurService;
+import javafx.stage.Stage;
+import services.LivraisonService;
+import services.Mailing;
+import services.PaymentService;
 
 public class Home {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private Pagination pagination;
+    private PaymentService paymentService;
+
+    private Livraison l;
+    @FXML
+    private TextField searchBox;
+
+    public Home() {
+        this.paymentService = new PaymentService(); // Initialisez votre service de paiement ici
+    }
 
     @FXML
     void openLivreur(MouseEvent event) {
-
-    }
-
-    @FXML
-    void initialize() {
-        assert pagination != null : "fx:id=\"pagination\" was not injected: check your FXML file 'home.fxml'.";
-
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/LivreurCrud.fxml"));
         try {
-            LivreurService livreurService = new LivreurService();
-            List<Livreur> livreurList = livreurService.readAll();
-
-            int itemsPerPage = 3;
-            int pageCount = (livreurList.size() + itemsPerPage - 1) / itemsPerPage;
-
-            pagination.setPageCount(pageCount);
-            pagination.setPageFactory(pageIndex -> createLivreurPage(livreurList, pageIndex, itemsPerPage));
-        } catch (Exception e) {
-            e.printStackTrace();
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) pagination.getScene().getWindow();
+            stage.setTitle("Livreur");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
-    private VBox createLivreurPage(List<Livreur> livreurList, int pageIndex, int itemsPerPage) {
-        VBox pageBox = new VBox(10);
-        pageBox.setPadding(new Insets(10));
 
-        int start = pageIndex * itemsPerPage;
-        int end = Math.min(start + itemsPerPage, livreurList.size());
+        @FXML
+        void initialize () {
+            assert pagination != null : "fx:id=\"pagination\" was not injected: check your FXML file 'home.fxml'.";
 
-        for (int i = start; i < end; i += 3) {
-            HBox cardRow = new HBox(10);
+            try {
+                LivraisonService livraisonService = new LivraisonService();
+                List<Livraison> livraisonList = livraisonService.readAll();
 
-            for (int j = i; j < Math.min(i + 3, end); j++) {
-                Livreur livreur = livreurList.get(j);
-                VBox livreurCard = createLivreurCard(livreur);
-                cardRow.getChildren().add(livreurCard);
+                int itemsPerPage = 3;
+                int pageCount = (livraisonList.size() + itemsPerPage - 1) / itemsPerPage;
+
+                pagination.setPageCount(pageCount);
+                pagination.setPageFactory(pageIndex -> createLivraisonPage(livraisonList, pageIndex, itemsPerPage));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        void afficherListLivraison(List<Livraison> list)
+        {
+            try {
+
+
+
+                int itemsPerPage = 3;
+                int pageCount = (list.size() + itemsPerPage - 1) / itemsPerPage;
+
+                pagination.setPageCount(pageCount);
+                pagination.setPageFactory(pageIndex -> createLivraisonPage(list, pageIndex, itemsPerPage));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        private VBox createLivraisonPage (List < Livraison > livraisonList,int pageIndex, int itemsPerPage){
+            VBox pageBox = new VBox(10);
+            pageBox.setPadding(new Insets(10));
+
+            int start = pageIndex * itemsPerPage;
+            int end = Math.min(start + itemsPerPage, livraisonList.size());
+
+            for (int i = start; i < end; i += 3) {
+                HBox cardRow = new HBox(10);
+
+                for (int j = i; j < Math.min(i + 3, end); j++) {
+                    Livraison livraison = livraisonList.get(j);
+                    VBox livraisonCard = createLivraisonCard(livraison);
+                    cardRow.getChildren().add(livraisonCard);
+                }
+
+                pageBox.getChildren().add(cardRow);
             }
 
-            pageBox.getChildren().add(cardRow);
+            return pageBox;
         }
 
-        return pageBox;
+        private VBox createLivraisonCard (Livraison livraison){
+            VBox card = new VBox(10);
+            card.setStyle("-fx-background-color: white; -fx-border-color: black;");
+            card.setPadding(new Insets(10));
+
+            ImageView imageView = new ImageView(new Image("images/deliveryIllustration.png"));
+            imageView.setFitWidth(100);
+            imageView.setFitHeight(100);
+
+            Label nameLabel = new Label("Client: " + livraison.getClientName());
+            Label addressLabel = new Label("Address: " + livraison.getDeliveryAddress());
+            Label dateLabel = new Label("Date: " + livraison.getDeliveryDate());
+            Label totalAmountLabel = new Label("Total Amount: " + livraison.getStatus());
+
+            Button payButton = new Button("Pay");
+            payButton.setOnAction(event -> handlePayment(livraison));
+
+            card.getChildren().addAll(imageView, nameLabel, addressLabel, dateLabel, totalAmountLabel, payButton);
+
+            return card;
+        }
+       private void handlePayment (Livraison livraison){
+           Mailing.sendHtmlNotification("donia.khefifi@esprit.tn","Cabine Notification","test","Removed");
+
+             paymentService.processPayment(40,livraison);
+
+        }
+
+
+    @FXML
+    public void ONtextchanged(Event event) {
     }
 
-    private VBox createLivreurCard(Livreur livreur) {
-        VBox card = new VBox(10);
-        card.setStyle("-fx-background-color: white; -fx-border-color: black;");
-        card.setPadding(new Insets(10));
+   @FXML
+   public void OnsearchBtnClicked(ActionEvent actionEvent) throws SQLException {
+        LivraisonService livraisonService = new LivraisonService();
+        List<Livraison> filteredList = livraisonService.SearchByClientName(searchBox.getText());
+        afficherListLivraison(filteredList);
 
-        ImageView imageView = new ImageView(new Image("images/deliveryIllustration.png"));
-        imageView.setFitWidth(100);
-        imageView.setFitHeight(100);
-
-        Label nameLabel = new Label("Name: " + livreur.getLivreurName());
-        Label contactLabel = new Label("Contact: " + livreur.getContactNumber());
-        Label dateLabel = new Label("Date: " + livreur.getDate());
-        Label typeLabel = new Label("Type of Vehicle: " + livreur.getTypeVehicule());
-        Label salaireLabel = new Label("Salaire: " + livreur.getSalaire() + "DT");
-
-        card.getChildren().addAll(imageView, nameLabel, contactLabel, dateLabel, typeLabel, salaireLabel);
-
-        return card;
     }
 }
+
+
