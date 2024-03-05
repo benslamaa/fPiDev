@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+
 public class HomeView {
     private Parent view;
 
@@ -17,6 +18,7 @@ public class HomeView {
     }
     public Parent getView(){
         return view;
+
 
     }
 

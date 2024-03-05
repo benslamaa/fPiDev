@@ -13,88 +13,99 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-public class CartController {
+ public class CartController {
 
-    @FXML
-    private VBox cartPane;
+     @FXML
+     private VBox cartPane;
 
-    private Label totalPriceLabel;
+     private Label totalPriceLabel;
 
-    @FXML
-    public void initialize() throws FileNotFoundException{
-        List<CartEntry> entries = ShoppingCart.getInstance().getEntries();
-        cartPane.getChildren().clear();
+     @FXML
+     public void initialize() throws FileNotFoundException {
+         List<CartEntry> entries = ShoppingCart.getInstance().getEntries();
+         cartPane.getChildren().clear();
 
-        if(entries.isEmpty()){
-            Label emptyLabel = new Label("Empty Cart");
-            cartPane.getChildren().add(emptyLabel);
-        }else{Label shoppingCartTitle = new Label("Shopping cart");
-            cartPane.getChildren().add(shoppingCartTitle);
+         if (entries.isEmpty()) {
+             Label emptyLabel = new Label("Empty Cart");
+             cartPane.getChildren().add(emptyLabel);
+         } else {
+             Label shoppingCartTitle = new Label("Shopping cart");
+             cartPane.getChildren().add(shoppingCartTitle);
 
-            for(CartEntry cartEntry:entries){
-                HBox productView = cartEntryView(cartEntry);
-                cartPane.getChildren().add(productView);
-            }
-            Separator separator=new Separator();
-            separator.setOrientation(Orientation.HORIZONTAL);
-            cartPane.getChildren().add(separator);
+             for (CartEntry cartEntry:entries) {
 
-            HBox totalView= totalView (ShoppingCart.getInstance().calculTotal());
-            cartPane.getChildren().add(totalView);
-        }
-    }
+                 HBox productView = cartEntryView(cartEntry);
+                 cartPane.getChildren().add(productView);
+             }
 
-    private HBox totalView(float totalPrice){
-        HBox layout=new HBox();
-        layout.setAlignment(Pos.CENTER);
+             Separator separator=new Separator();
+             separator.setOrientation(Orientation.HORIZONTAL);
+             cartPane.getChildren().add(separator);
 
-        Label totalLabel = new Label("Total : ");
-        totalLabel.setStyle("-fx-font-size:15pt;");
+             HBox totalView = totalView(ShoppingCart.getInstance().calculTotal());
+             cartPane.getChildren().add(totalView);
+         }
+     }
 
-        this.totalPriceLabel = new Label(String.valueOf(totalPrice));
+   private HBox totalView(Float totalPrice){
+         HBox layout = new HBox();
+         layout.setAlignment(Pos.CENTER);
 
-        layout.getChildren().addAll(totalLabel,this.totalPriceLabel);
-        return layout;
-    }
+         Label totalLabel = new Label("Total : ");
+         totalLabel.setStyle("-fx-font-size:15pt;");
 
-    private HBox cartEntryView(CartEntry cartEntry) throws FileNotFoundException{
-        HBox layout = new HBox();
-        layout.setAlignment(Pos.CENTER_LEFT);
+         this.totalPriceLabel = new Label(String.valueOf(totalPrice));
+         layout.getChildren().addAll(totalLabel,this.totalPriceLabel);
+         return layout;
+   }
 
-        FileInputStream input = new FileInputStream("/images/"+cartEntry.getProduct().getImageFile());
-        Image image=new Image(input);
-        ImageView imageView = new ImageView(image);
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
-
-        Label productName = new Label(cartEntry.getProduct().name());
-        productName.setPrefWidth(100);
-        productName.setStyle("-fx-font-size:15pt;-fx-padding:5px ");
-
-        Label quantity= new Label(String.valueOf(cartEntry.getQuantity()));
-        quantity.setStyle("-fx-padding:5px");
-
-        Button plusButton = new Button("+");
-        plusButton.setStyle("-fx-padding:5px");
-        plusButton.setUserData(cartEntry.getProduct().name());
-        plusButton.setOnAction(e -> {
-            String name = (String) ((Node) e.getSource()).getUserData();
-            ShoppingCart.getInstance().addProduct(name);
-            quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
-            this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculTotal()));
-        });
+     private HBox cartEntryView(CartEntry cartEntry) throws FileNotFoundException {
+         HBox layout = new HBox();
+         layout.setAlignment(Pos.CENTER_LEFT);
 
 
-        Button minusButton = new Button("-");
-        plusButton.setStyle("-fx-padding:5px");
+         InputStream input = getClass().getResourceAsStream("/images/" + cartEntry.getProduct().getImageFile());
 
-        Label price = new Label(String.valueOf(" DT"+cartEntry.getProduct().getPrice()));
-        price.setStyle("-fx-padding:5px");
+         Image image = new Image(input);
+         ImageView imageView = new ImageView(image);
+         imageView.setFitWidth(50);
+         imageView.setFitHeight(50);
 
-        layout.getChildren().addAll(imageView,productName,plusButton,quantity,minusButton,price);
-        return layout;
-    }
-}
+         Label productName = new Label(cartEntry.getProduct().name());
+         productName.setPrefWidth(100);
+         productName.setStyle("-fx-font-size:15pt;-fx-padding:5px ");
+
+         Label quantity = new Label(String.valueOf(cartEntry.getQuantity()));
+         quantity.setStyle("-fx-padding:5px");
+
+         Button plusButton = new Button("+");
+         plusButton.setStyle("-fx-padding:5px");
+         plusButton.setUserData(cartEntry.getProduct().name());
+         plusButton.setOnAction(event -> {
+             String name = (String) ((Node) event.getSource()).getUserData();
+             ShoppingCart.getInstance().addProduct(name);
+             quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
+             this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculTotal()));
+         });
+
+         Button minusButton = new Button("-");
+         minusButton.setStyle("-fx-padding:5px");
+         minusButton.setUserData(cartEntry.getProduct().name());
+         minusButton.setOnAction(event -> {
+                     String name = (String) ((Node) event.getSource()).getUserData();
+                     ShoppingCart.getInstance().removeProduct(name);
+                     quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
+                     this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculTotal()));
+                 });
+         Label price = new Label(String.valueOf(" DT"+cartEntry.getProduct().getPrice()));
+         price.setStyle("-fx-padding:5px");
+
+         layout.getChildren().addAll(imageView, productName, plusButton, quantity, minusButton, price);
+         return layout;
+
+     }
+ }

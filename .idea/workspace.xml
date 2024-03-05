@@ -4,27 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bae1c8f-8b0f-497c-97bd-9183969ede8b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/AppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/cart-ui.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/cart/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/cart/CartEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/cart/CartView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/cart/ShoppingCart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/cart/cart.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/home/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/home/HomeView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/home/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/panier/home/home.fxml" afterDir="false" />
+    <list default="true" id="7bae1c8f-8b0f-497c-97bd-9183969ede8b" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/panier/Menu/MenuView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/panier/Menu/ProductItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/panier/Menu/menuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/cart-ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/cart-ui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/cart/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/cart/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/cart/CartEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/cart/CartEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/cart/CartView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/cart/CartView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/cart/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/cart/ShoppingCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/cart/cart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/cart/cart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/home/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/home/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/panier/home/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/panier/home/HomeView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,29 +55,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/admin/IdeaProjects/panier/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pathVariables",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shopping-cart [org.apache.maven.plugins:maven-jar-plugin:3.3.0:jar].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shopping-cart [org.openjfx:javafx-maven-plugin:0.0.3:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;adem&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Downloads/apache-maven-3.9.6-bin.zip&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/admin/IdeaProjects/panier/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\IdeaProjects\panier\src\main\resources" />
       <recent name="C:\Users\admin\IdeaProjects\panier\src\main\java\panier\cart" />
       <recent name="C:\Users\admin\IdeaProjects\panier\src\main\resources\panier\cart" />
     </key>
@@ -123,11 +124,47 @@
       <workItem from="1708780143645" duration="9432000" />
       <workItem from="1708864491069" duration="13059000" />
       <workItem from="1708966436672" duration="26031000" />
-      <workItem from="1709030875072" duration="4167000" />
+      <workItem from="1709030875072" duration="12859000" />
+      <workItem from="1709503371685" duration="1553000" />
+      <workItem from="1709506318970" duration="106000" />
+      <workItem from="1709507681756" duration="9562000" />
+      <workItem from="1709553395230" duration="28364000" />
+      <workItem from="1709595228320" duration="55000" />
+      <workItem from="1709596075849" duration="65000" />
+      <workItem from="1709603712459" duration="17000" />
+      <workItem from="1709632198861" duration="1505000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1709039222371</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709039222371</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

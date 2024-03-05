@@ -11,6 +11,10 @@ public class ShoppingCart {
 
     private static ShoppingCart INSTANCE;
 
+    private Map<String,CartEntry>entries;
+    private ShoppingCart() {
+        this.entries = new HashMap<>();
+    }
     public static ShoppingCart getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new ShoppingCart();
@@ -18,11 +22,8 @@ public class ShoppingCart {
         return INSTANCE;
     }
 
-    private Map<String, CartEntry> entries;
 
-    private ShoppingCart() {
-        this.entries = new HashMap<>();
-    }
+
 
     public void addProduct(String productName) {
         CartEntry productEntry = entries.get(productName.toUpperCase());
