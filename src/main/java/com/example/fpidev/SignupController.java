@@ -1,4 +1,4 @@
-package com.example.fpidev.controllers;
+package com.example.fpidev;
 
 import com.example.fpidev.entities.Encryptor;
 import com.example.fpidev.entities.User;
@@ -89,7 +89,7 @@ public class SignupController implements Initializable {
     }
 
     public void loginSignupButtonOnClick(ActionEvent event){
-        serviceUser.changeScreen(event, "/login.fxml", "Login");
+        serviceUser.changeScreen(event, "login.fxml", "Login");
     }
     public boolean getErrors(){
         pseudoSignupError.setText("");

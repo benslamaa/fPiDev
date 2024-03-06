@@ -4,34 +4,57 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fpidev.SignupController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <AnchorPane layoutY="-1.0" prefHeight="610.0" prefWidth="210.0" style="-fx-background-color: red;">
+            <AnchorPane layoutY="-1.0" prefHeight="610.0" prefWidth="230.0" style="-fx-background-color: #D30011;">
                <children>
-                  <Button fx:id="Exit" layoutX="60.0" layoutY="42.0" mnemonicParsing="false" text="Exit" />
+                  <Button fx:id="Exit" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: tranparent;" text="Exit" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
-            <Pane layoutX="211.0" layoutY="-1.0" prefHeight="610.0" prefWidth="614.0">
+            <Pane layoutX="229.0" layoutY="53.0" prefHeight="557.0" prefWidth="596.0">
                <children>
-                  <TextField fx:id="pseudoSignup" layoutX="51.0" layoutY="58.0" promptText="username" />
-                  <Button fx:id="signUpButton" layoutX="51.0" layoutY="441.0" mnemonicParsing="false" text="signup" />
-                  <Button fx:id="loginSignup" layoutX="501.0" layoutY="548.0" mnemonicParsing="false" text="login" />
-                  <Label fx:id="echecLoginLabel" layoutX="58.0" layoutY="70.0" textFill="RED" />
-                  <TextField fx:id="cinSignup" layoutX="51.0" layoutY="106.0" promptText="CIN" />
-                  <TextField fx:id="nomSignup" layoutX="51.0" layoutY="145.0" promptText="Nom" />
-                  <TextField fx:id="prenomSignup" layoutX="51.0" layoutY="190.0" promptText="Prenom" />
-                  <TextField fx:id="numtelSignup" layoutX="58.0" layoutY="234.0" promptText="N°Telephone" />
-                  <TextField fx:id="emailSignup" layoutX="58.0" layoutY="280.0" promptText="E-mail" />
-                  <PasswordField fx:id="mdpSignup" layoutX="58.0" layoutY="325.0" promptText="Mot de passe" />
-                  <PasswordField fx:id="confirmMdpSignup" layoutX="58.0" layoutY="373.0" promptText="Confirmer mot de passe" />
+                  <TextField fx:id="pseudoSignup" layoutX="51.0" layoutY="58.0" prefHeight="25.0" prefWidth="187.0" promptText="username" />
+                  <Button fx:id="signUpButton" layoutX="51.0" layoutY="433.0" mnemonicParsing="false" onAction="#signUpButtonButtonOnClick" prefHeight="33.0" prefWidth="187.0" style="-fx-background-color: #D30011;" text="signup" textFill="WHITE" />
+                  <Button fx:id="loginSignup" layoutX="384.0" layoutY="492.0" mnemonicParsing="false" onAction="#loginSignupButtonOnClick" prefHeight="33.0" prefWidth="187.0" style="-fx-background-color: #D30011;" text="login" textFill="WHITE" />
+                  <TextField fx:id="cinSignup" layoutX="51.0" layoutY="106.0" prefHeight="25.0" prefWidth="187.0" promptText="CIN" />
+                  <TextField fx:id="nomSignup" layoutX="51.0" layoutY="145.0" prefHeight="25.0" prefWidth="187.0" promptText="Nom" />
+                  <TextField fx:id="prenomSignup" layoutX="51.0" layoutY="190.0" prefHeight="25.0" prefWidth="187.0" promptText="Prenom" />
+                  <TextField fx:id="numtelSignup" layoutX="51.0" layoutY="234.0" prefHeight="25.0" prefWidth="187.0" promptText="N°Telephone" />
+                  <TextField fx:id="emailSignup" layoutX="51.0" layoutY="280.0" prefHeight="25.0" prefWidth="187.0" promptText="E-mail" />
+                  <PasswordField fx:id="mdpSignup" layoutX="52.0" layoutY="325.0" prefHeight="25.0" prefWidth="187.0" promptText="Mot de passe" />
+                  <PasswordField fx:id="confirmMdpSignup" layoutX="52.0" layoutY="373.0" prefHeight="25.0" prefWidth="187.0" promptText="Confirmer mot de passe" />
+                  <Label fx:id="pseudoSignupError" layoutX="264.0" layoutY="62.0" prefHeight="17.0" prefWidth="0.0" />
+                  <Label fx:id="cinSignupError" layoutX="274.0" layoutY="110.0" />
+                  <Label fx:id="nomSignupError" layoutX="274.0" layoutY="149.0" />
+                  <Label fx:id="prenomSignupError" layoutX="274.0" layoutY="194.0" />
+                  <Label fx:id="numtelSignupError" layoutX="274.0" layoutY="238.0" />
+                  <Label fx:id="emailSignupError" layoutX="274.0" layoutY="284.0" />
+                  <Label fx:id="mdpSignupError" layoutX="274.0" layoutY="329.0" />
+                  <Label fx:id="confirmMdpSignupError" layoutX="274.0" layoutY="377.0" />
                </children>
             </Pane>
+            <Label layoutX="478.0" layoutY="13.0" prefHeight="27.0" prefWidth="78.0" text="Signup">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMG/foody.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

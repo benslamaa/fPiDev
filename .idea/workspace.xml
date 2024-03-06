@@ -5,33 +5,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6ca9206-0efd-4b1b-94ee-c7dd12c7933a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/MotDePasseOublieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/MotDePasseOublieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/entities/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/entities/Encryptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/interfaces/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/interfaces/IService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/interfaces/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/interfaces/Roles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/interfaces/ServiceUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/interfaces/ServiceUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fpidev/utils/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/fpidev/utils/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/client.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/clientFront.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/clientFront.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/motDePasseOublie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/motDePasseOublie.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/fpidev/signup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2dDKctbmUNbWXyvQvGIalLcF0ne" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/abdul/Desktop/fPiDev/src/main/java/com/example/fpidev&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\abdul\Desktop\fPiDev\src\main\java\com\example\fpidev" />
+      <recent name="C:\Users\abdul\Desktop\fPiDev\src\main\resources\com\example\fpidev" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.fpidev" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -40,8 +90,43 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709537292237</updated>
-      <workItem from="1709537293221" duration="3000" />
+      <workItem from="1709537293221" duration="17982000" />
+      <workItem from="1709579933080" duration="8683000" />
+      <workItem from="1709589304270" duration="1952000" />
+      <workItem from="1709626877487" duration="681000" />
+      <workItem from="1709633204477" duration="3329000" />
+      <workItem from="1709644229742" duration="2152000" />
+      <workItem from="1709661768489" duration="32000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

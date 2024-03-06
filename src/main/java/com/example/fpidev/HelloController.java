@@ -1,4 +1,4 @@
-package com.example.fpidev.controllers;
+package com.example.fpidev;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

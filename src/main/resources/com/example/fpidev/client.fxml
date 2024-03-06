@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fpidev.ClientController">
    <children>
       <BorderPane layoutY="-2.0" prefHeight="505.0" prefWidth="208.0" style="-fx-background-color: #D30011;">
          <center>
@@ -36,7 +35,7 @@
             </ImageView>
          </top>
          <bottom>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#deconnecterButtonOnClick" prefHeight="40.0" prefWidth="168.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
@@ -57,6 +56,16 @@
                   </Label>
                </right>
             </BorderPane>
+            <Label fx:id="name" layoutX="128.0" layoutY="124.0" text="Label" />
+            <Label layoutX="56.0" layoutY="124.0" text="Nom" />
+            <Label layoutX="56.0" layoutY="163.0" text="Prenon" />
+            <Label layoutX="59.0" layoutY="200.0" text="Email" />
+            <Label layoutX="56.0" layoutY="236.0" text="Cin" />
+            <Label layoutX="57.0" layoutY="275.0" text="tel" />
+            <Label fx:id="prenon" layoutX="128.0" layoutY="163.0" text="Label" />
+            <Label fx:id="email" layoutX="134.0" layoutY="200.0" text="Label" />
+            <Label fx:id="cin" layoutX="130.0" layoutY="234.0" text="Label" />
+            <Label fx:id="tel" layoutX="134.0" layoutY="275.0" text="Label" />
          </children>
       </AnchorPane>
    </children>
